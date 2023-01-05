@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+    before_action :authenticate_user!, except: [:index,:show]
 
 
     def index
@@ -6,25 +7,28 @@ class EventsController < ApplicationController
     end
 
     def show
-        @event=Events.find(params[:id])
+        @event=Event.find(params[:id])
     end
 
 
+    def new
+        @event=Event.new
+    end
 
-
-
-
-
-
-
-
-
-
+    def create
+        @event = current_user.hosted_parties.build(event_params)
+    
+        if @event.save
+          redirect_to root_path
+        else
+          render :new
+        end
+    end
 
 
     private
-    ##def params
-      ##  params.require(:id)
-    ##end
+    def event_params
+        params.require(:event).permit(:title,:description,:date,:exclusive)
+    end
 
 end

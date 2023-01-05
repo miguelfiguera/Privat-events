@@ -1,0 +1,14 @@
+<h3>List of events</h3>
+<div>
+<%@events=Event.where(:user_id == current_user.id)%>
+
+<%=@events.each do |e|%>
+<%= e.title%>
+<%= e.description%>
+<%= e.date%>
+<%= e.exclusive%><br>
+<%end%>
+
+
+
+</div>

@@ -1,8 +1,12 @@
 <h1>Events :D & Parties!</h1>
 
-
 <div>
 <%@events.each do |e|%>
-<%=print e%>
+<%=e.title%><br><%=link_to 'Event Details', e%>
 <%end%>
 </div>
+
+<%=link_to current_user%>
+
+<h4><%=link_to 'Create a new Event', new_event_path%></h4>
+
