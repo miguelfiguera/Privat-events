@@ -1,0 +1,13 @@
+
+
+<%events=Invitation.where(user_id:current_user.id).where(acceptance:true)%>
+<h2>You are invited to:</h2>
+<%events.each do |ev|%>
+<%=ev.event.title%>
+<%=ev.event.description%>
+<%=ev.event.date%>
+<%= link_to 'Change attendence?', ev.event%>
+<br>
+<%end%>
+
+

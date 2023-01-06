@@ -15,7 +15,6 @@ class InvitationsController < ApplicationController
     def create
         @invitation=current_user.invitations.build(invitation_params)
 
-       
         if @invitation.save
             redirect_to root_path
           else
@@ -24,7 +23,7 @@ class InvitationsController < ApplicationController
     end
 
     def edit
-        @invitation=Invitation.find(current_user.id)
+        @invitation=Invitation.find(params[:id])
     end
 
     def update
@@ -35,6 +34,11 @@ class InvitationsController < ApplicationController
         else
             redirect_to root_path
         end
+    end
+
+    def delete
+        @invitation=Invitation.find(params[:id])
+        @invitation.delete
     end
 
 

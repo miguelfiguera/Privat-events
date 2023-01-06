@@ -4,3 +4,16 @@
 <%=@event.description%>
 <%=@event.date%>
 <%=@event.creator.email%>
+<%invitation=Invitation.find_by user_id: current_user.id, event_id: @event.id, acceptance: true%>
+
+
+<%if @event.creator.id == current_user.id%>
+<%= link_to 'Edit', edit_event_path(@event)%>
+<%=render 'delete_event'%>
+<%end%>
+
+<%if current_user.id != @event.user_id && invitation.nil?%>
+<%=render 'attend?_event'%>
+<%elsif  invitation%>
+<%=render 'change_attendance'%>
+<%end%>

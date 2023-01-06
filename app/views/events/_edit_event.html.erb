@@ -1,0 +1,25 @@
+<%=form_with model:@event do |form|%>  <br>
+
+    <%=form.label :title, 'Title of the event'%>  <br>
+
+    <%=form.text_field :title%>  <br>
+
+    <%=form.label :description, 'Describe the event'%>  <br>
+
+    <%=form.text_area :description%>  <br>
+
+    <%=form.label :date, 'Date to PARTYYYYYYYY!'%>  <br>
+
+    <%= form.date_select :date%>  <br>
+
+    <%=form.label :exclusive, 'yes', value: 'true'%>  
+
+    <%=form.radio_button :exclusive, true %>  <br>
+
+    <%=form.label :exclusive, 'no', value: 'false'%>  
+
+    <%=form.radio_button :exclusive, false %>  <br>
+
+
+    <%=form.submit 'Edit Event.'%>
+<%end%>

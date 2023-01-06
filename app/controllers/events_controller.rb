@@ -15,6 +15,20 @@ class EventsController < ApplicationController
         @event=Event.new
     end
 
+    def edit
+        @event=Event.find(params[:id])
+    end
+
+    def update
+        @event=Event.find(params[:id])
+
+        if @event.update(event_params)
+            redirect_to root_path
+        else
+            redirect_to root_path
+        end
+    end
+    
     def create
         @event = current_user.events.build(event_params)
     
@@ -23,6 +37,11 @@ class EventsController < ApplicationController
         else
           render :new
         end
+    end
+
+    def delete
+        @event=Event.find(params[:id])
+        @event.delete
     end
 
 

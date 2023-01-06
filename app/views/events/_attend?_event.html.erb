@@ -1,0 +1,7 @@
+<h1>Do you wish to attend?</h1>
+<%=form_with model:Invitation do |i|%>
+<%=i.hidden_field :user_id, value: current_user.id%>
+<%=i.hidden_field :event_id, value: @event.id%>
+<%=i.hidden_field :acceptance, value: true%>
+<%=i.submit 'YES I WISH TO ATTEND GOOD LORD!'%>
+<%end%>

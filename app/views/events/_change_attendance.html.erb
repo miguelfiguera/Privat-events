@@ -1,0 +1,11 @@
+<h1>have you changed your mind?</h1>
+<%@invitation=Invitation.find_by user_id: current_user.id, event_id: @event.id, acceptance: true%>
+
+
+<%=form_with model: @invitation do |i|%>
+<%=i.hidden_field :user_id, value: current_user.id%>
+<%=i.hidden_field :event_id, value: @event.id%>
+<%=i.hidden_field :acceptance, value: false%>
+<%=i.submit 'YES I DO NOT WANT TO GO ANYMORE!'%>
+<%end%>
+
