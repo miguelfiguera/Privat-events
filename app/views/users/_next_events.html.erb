@@ -1,0 +1,9 @@
+<h2>Future Events</h2>
+<%Event.all.each do |ev|%>
+<%if ev.date>Date.today && ev.user_id == current_user.id%>
+<%=ev.title%>
+<%=ev.description%>
+<%=ev.date%>
+<br>
+<%end%>
+<%end%>

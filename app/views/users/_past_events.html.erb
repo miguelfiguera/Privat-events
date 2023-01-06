@@ -1,0 +1,9 @@
+<h2>Past Events</h2>
+
+<%events=Event.where(user_id:current_user.id).where('date < ?', Date.today)%>
+<%events.each do |ev|%>
+<%=ev.title%>
+<%=ev.description%>
+<%=ev.date%>
+<br>
+<%end%>

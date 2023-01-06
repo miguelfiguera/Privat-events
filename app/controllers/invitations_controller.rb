@@ -5,7 +5,7 @@ class InvitationsController < ApplicationController
     end
 
     def show
-        @invitation=Invitation.find(params)
+        @invitation=Invitation.find(params[:id])
     end
 
     def new
